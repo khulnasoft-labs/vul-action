@@ -6,7 +6,7 @@
       "tool": {
         "driver": {
           "fullName": "Vul Vulnerability Scanner",
-          "informationUri": "https://github.com/khulnasoft-labs/vul",
+          "informationUri": "https://github.com/khulnasoft/vul",
           "name": "Vul",
           "rules": [
             {

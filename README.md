@@ -1,6 +1,6 @@
 # Vul Action
 
-> [GitHub Action](https://github.com/features/actions) for [Vul](https://github.com/khulnasoft-labs/vul)
+> [GitHub Action](https://github.com/features/actions) for [Vul](https://github.com/khulnasoft/vul)
 
 [![GitHub Release][release-img]][release]
 [![GitHub Marketplace][marketplace-img]][marketplace]
@@ -39,7 +39,7 @@ jobs:
         run: |
           docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
       - name: Run Vul vulnerability scanner
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           format: 'table'
@@ -67,7 +67,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Run Vul vulnerability scanner in fs mode
-      uses: khulnasoft-labs/vul-action@master
+      uses: khulnasoft-lab/vul-action@master
       with:
         scan-type: 'fs'
         scan-ref: '.'
@@ -115,7 +115,7 @@ jobs:
         docker save -o vuln-image.tar <your-docker-image>
         
     - name: Run Vul vulnerability scanner in tarball mode
-      uses: khulnasoft-labs/vul-action@master
+      uses: khulnasoft-lab/vul-action@master
       with:
         input: /github/workspace/vuln-image.tar
         severity: 'CRITICAL,HIGH'
@@ -143,7 +143,7 @@ jobs:
           docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
 
       - name: Run Vul vulnerability scanner
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           format: 'sarif'
@@ -155,7 +155,7 @@ jobs:
           sarif_file: 'vul-results.sarif'
 ```
 
-You can find a more in-depth example here: https://github.com/khulnasoft-labs/vul-sarif-demo/blob/master/.github/workflows/scan.yml
+You can find a more in-depth example here: https://github.com/khulnasoft-lab/vul-sarif-demo/blob/master/.github/workflows/scan.yml
 
 If you would like to upload SARIF results to GitHub Code scanning even upon a non zero exit code from Vul Scan, you can add the following to your upload step:
 ```yaml
@@ -178,7 +178,7 @@ jobs:
           docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
 
       - name: Run Vul vulnerability scanner
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           format: 'sarif'
@@ -213,7 +213,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Vul vulnerability scanner in repo mode
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           scan-type: 'fs'
           ignore-unfixed: true
@@ -247,7 +247,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Vul vulnerability scanner with rootfs command
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           scan-type: 'rootfs'
           scan-ref: 'rootfs-example-binary'
@@ -282,7 +282,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Vul vulnerability scanner in IaC mode
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           scan-type: 'config'
           hide-progress: false
@@ -326,7 +326,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Vul in GitHub SBOM mode and submit results to Dependency Graph
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           scan-type: 'fs'
           format: 'github'
@@ -357,7 +357,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Vul vulnerability scanner
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           format: 'sarif'
@@ -393,7 +393,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Vul vulnerability scanner
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           image-ref: 'aws_account_id.dkr.ecr.region.amazonaws.com/imageName:${{ github.sha }}'
           format: 'sarif'
@@ -429,7 +429,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Vul vulnerability scanner
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           format: 'sarif'
@@ -462,7 +462,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Vul vulnerability scanner
-        uses: khulnasoft-labs/vul-action@master
+        uses: khulnasoft-lab/vul-action@master
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           format: 'sarif'
@@ -509,9 +509,9 @@ Following inputs can be used as `step.with` keys:
 | `github-pat`      | String  |                                    | Authentication token to enable sending SBOM scan results to GitHub Dependency Graph. Can be either a GitHub Personal Access Token (PAT) or GITHUB_TOKEN |
 | `limit-severities-for-sarif`      | Boolean  | false                                   | By default *SARIF* format enforces output of all vulnerabilities regardless of configured severities. To override this behavior set this parameter to **true** |
 
-[release]: https://github.com/khulnasoft-labs/vul-action/releases/latest
-[release-img]: https://img.shields.io/github/release/khulnasoft-labs/vul-action.svg?logo=github
+[release]: https://github.com/khulnasoft-lab/vul-action/releases/latest
+[release-img]: https://img.shields.io/github/release/khulnasoft-lab/vul-action.svg?logo=github
 [marketplace]: https://github.com/marketplace/actions/khulnasoft-security-vul
 [marketplace-img]: https://img.shields.io/badge/marketplace-vul--action-blue?logo=github
-[license]: https://github.com/khulnasoft-labs/vul-action/blob/master/LICENSE
-[license-img]: https://img.shields.io/github/license/khulnasoft-labs/vul-action
+[license]: https://github.com/khulnasoft-lab/vul-action/blob/master/LICENSE
+[license-img]: https://img.shields.io/github/license/khulnasoft-lab/vul-action

@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Vul
         run: |
-          curl -sfL https://raw.githubusercontent.com/khulnasoft-labs/vul/main/contrib/install.sh | sh -s -- -b /usr/local/bin v${{ env.VUL_VERSION }}
+          curl -sfL https://raw.githubusercontent.com/khulnasoft/vul/main/contrib/install.sh | sh -s -- -b /usr/local/bin v${{ env.VUL_VERSION }}
 
       - name: Test
         run: BATS_LIB_PATH=${{ env.BATS_LIB_PATH }} bats --recursive --timing .
