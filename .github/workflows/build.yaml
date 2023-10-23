@@ -18,7 +18,7 @@ jobs:
         uses: brokenpip3/setup-bats-libs@0.1.0
 
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Install Vul
         run: |
