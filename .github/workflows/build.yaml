@@ -15,7 +15,7 @@ jobs:
           bats-version: 1.7.0
 
       - name: Setup Bats libs
-        uses: brokenpip3/setup-bats-libs@0.1.0
+        uses: brokenpip3/setup-bats-libs@1.5.2
 
       - name: Check out code
         uses: actions/checkout@v1
